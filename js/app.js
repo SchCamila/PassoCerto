@@ -113,9 +113,17 @@ function configurarControlesTopo() {
   });
 }
 
+function registrarServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.register('sw.js').catch(() => {
+    /* sem service worker, o app continua funcionando online normalmente */
+  });
+}
+
 function iniciar() {
   aplicarPreferencias();
   configurarControlesTopo();
+  registrarServiceWorker();
   const { usuario } = obterEstado();
   navegar(usuario.onboardingCompleto ? 'inicio' : 'entrada');
 }
