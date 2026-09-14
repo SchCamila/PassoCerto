@@ -59,9 +59,21 @@ function estadoDemonstracao() {
 }
 
 /** Estado para quem ainda não passou pelo login (usado só se algo apagar o storage). */
+/** Estado de fábrica: ninguém logado ainda, nenhum lançamento — o visitante faz o login de verdade. */
 function estadoVazio() {
-  const demo = estadoDemonstracao();
-  return { ...demo, usuario: { ...demo.usuario, onboardingCompleto: false } };
+  return {
+    versao: 1,
+    usuario: {
+      nome: '', celular: '', ocupacao: '', ocupacaoLivre: '',
+      renda: 0, tipoAtividade: 'servico', cnae: '', onboardingCompleto: false,
+    },
+    lancamentos: [],
+    trilhaFormalizacao: { passosConcluidos: [false, false, false, false, false] },
+    deveres: { pagamentos: {} },
+    direitos: { contribuicoesSimuladas: 0 },
+    preferencias: { tema: 'sistema', fonteAumentada: false, altoContraste: false },
+    equipe: { disciplina: '', professor: '', integrantes: '', instituicao: '', curso: '' },
+  };
 }
 
 let estadoEmMemoria = null;
@@ -87,10 +99,15 @@ function salvarNoStorage(estado) {
   }
 }
 
-/** Devolve o estado atual, carregando do storage uma vez e semeando a demonstração se necessário. */
+/**
+ * Devolve o estado atual, carregando do storage uma vez.
+ * Um visitante de verdade, na primeira visita, começa com um estado vazio
+ * e passa pelo login normal — os dados da Marli só aparecem por escolha
+ * própria, pelo botão "Só quero conhecer o app" ou "Restaurar demonstração".
+ */
 export function obterEstado() {
   if (estadoEmMemoria) return estadoEmMemoria;
-  estadoEmMemoria = carregarDoStorage() ?? estadoDemonstracao();
+  estadoEmMemoria = carregarDoStorage() ?? estadoVazio();
   salvarNoStorage(estadoEmMemoria);
   return estadoEmMemoria;
 }
