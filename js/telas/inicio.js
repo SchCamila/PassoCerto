@@ -2,6 +2,7 @@ import { obterEstado } from '../state.js';
 import { projecaoAnual, statusTeto, alertaTeto, TETO, formatarMoeda } from '../regras.js';
 import { PASSOS_FORMALIZACAO } from '../trilha.js';
 import { mesAtual, nomeMes } from '../utils.js';
+import { botaoOuvirHtml, ligarBotaoOuvir } from '../voz.js';
 
 export function montar(container, { navegar }) {
   const estado = obterEstado();
@@ -61,6 +62,7 @@ export function montar(container, { navegar }) {
       <div style="display:flex; justify-content:space-between; font-weight:700; border-top:1px solid var(--line); padding-top:0.5rem">
         <span>Saldo</span><span class="numero" style="color:${saldoMes >= 0 ? 'var(--brand)' : 'var(--critical)'}">${formatarMoeda(saldoMes)}</span>
       </div>
+      ${botaoOuvirHtml('ouvir-saldo-mes')}
     </section>
 
     <section class="cartao">
@@ -94,4 +96,9 @@ export function montar(container, { navegar }) {
   container.querySelectorAll('[data-ir]').forEach((el) => {
     el.addEventListener('click', () => navegar(el.dataset.ir));
   });
+
+  ligarBotaoOuvir(container, 'ouvir-saldo-mes', () => (
+    `Este mês entrou ${formatarMoeda(entradasMes)} e saiu ${formatarMoeda(saidasMes)}. Seu saldo é ${formatarMoeda(saldoMes)}. ` +
+    `A projeção de faturamento do ano é ${formatarMoeda(projecao)}, de um limite de ${formatarMoeda(TETO)}.`
+  ));
 }

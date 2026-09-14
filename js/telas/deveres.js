@@ -1,5 +1,6 @@
 import { obterEstado, atualizarDeveres } from '../state.js';
 import { valorDAS, multaPorAtraso, formatarMoeda, DIA_VENCIMENTO_DAS, DIA_LIMITE_DASN } from '../regras.js';
+import { microlicao } from '../microlicoes.js';
 
 const NOMES_MES_CURTO = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
@@ -88,8 +89,8 @@ function render(container, estado, contexto) {
     </section>
 
     <section class="cartao" style="background:${dasnVencida ? 'var(--critical-bg)' : 'var(--brand-light)'}">
-      <h2 style="margin-bottom:0.3rem">Declaração anual (DASN-SIMEI)</h2>
-      <p style="margin:0"><strong>DASN-SIMEI</strong> é a declaração anual do MEI — informa quanto você faturou no ano.</p>
+      <h2 style="margin-bottom:0.3rem">Declaração anual</h2>
+      ${microlicao('DASN-SIMEI')}
       <p style="margin-top:0.5rem">${dasnVencida
         ? `O prazo deste ano (31 de maio) já passou. Regularize o quanto antes pelo Meu MEI Digital.`
         : `Prazo: até 31 de maio de ${ano}.`}</p>

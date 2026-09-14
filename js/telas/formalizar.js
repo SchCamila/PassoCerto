@@ -3,6 +3,8 @@ import { valorDAS, custoPorDia, fatiaDaRenda, formatarMoeda } from '../regras.js
 import { buscarOcupacoes } from '../ocupacoes.js';
 import { PASSOS_FORMALIZACAO } from '../trilha.js';
 import { mostrarToast } from '../toast.js';
+import { microlicao } from '../microlicoes.js';
+import { botaoOuvirHtml, ligarBotaoOuvir } from '../voz.js';
 
 const URL_PORTAL_EMPREENDEDOR = 'https://www.gov.br/empresas-e-negocios/pt-br/empreendedor';
 
@@ -56,14 +58,13 @@ function render(container, estado, local) {
         <p class="ajuda">É o que define o valor do DAS — a guia mensal do MEI.</p>
       </div>
 
-      <div class="microlicao">
-        <strong>DAS</strong> é o Documento de Arrecadação do Simples Nacional: a guia única que junta o INSS e o imposto (ICMS e/ou ISS) do MEI, paga todo mês.
-      </div>
+      ${microlicao('DAS')}
 
       <div style="text-align:center; margin:1rem 0">
         <p style="margin:0; color:var(--muted)">Você pagaria</p>
         <p class="numero" style="font-size:2rem; font-weight:700; margin:0.2rem 0">${formatarMoeda(das)}<span style="font-size:1rem; font-weight:400"> por mês</span></p>
         <p class="numero" style="color:var(--secondary)">${formatarMoeda(porDia)} por dia · ${fatia.toFixed(1)}% do que você recebe</p>
+        ${botaoOuvirHtml('ouvir-diagnostico')}
       </div>
 
       <div role="img" aria-label="${fatia.toFixed(1)}% da sua renda iria para o DAS, ${restante.toFixed(1)}% continuaria com você"
@@ -104,6 +105,7 @@ function render(container, estado, local) {
           </span>
         </label>
       `).join('')}
+      ${microlicao('CNPJ')}
       <p class="ajuda" style="margin-top:0.75rem">
         O Passo Certo não emite CNPJ nem guias — isso é feito de graça no Portal do Empreendedor do governo.
       </p>
@@ -114,6 +116,9 @@ function render(container, estado, local) {
   `;
 
   ligarEventos(container, estado, local);
+  ligarBotaoOuvir(container, 'ouvir-diagnostico', () => (
+    `A guia mensal do MEI custaria ${formatarMoeda(das)} por mês, ou ${formatarMoeda(porDia)} por dia — ${fatia.toFixed(1)} por cento do que você recebe.`
+  ));
 }
 
 function cartaoResultadoOcupacao(o) {
@@ -125,9 +130,7 @@ function cartaoResultadoOcupacao(o) {
         ${o.elegivel ? '✓ Está na lista do MEI' : '✕ Fora da lista do MEI'}
       </span>
       ${!o.elegivel ? `<p style="margin-top:0.5rem">${o.motivoInelegivel}</p>` : ''}
-      <div class="microlicao" style="margin-top:0.6rem; margin-bottom:0">
-        <strong>CNAE</strong> é o código que descreve sua atividade para o governo — cada ocupação tem um (ou mais) CNAE correspondente.
-      </div>
+      <div style="margin-top:0.6rem">${microlicao('CNAE')}</div>
     </div>
   `;
 }
