@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dossiê do projeto — Passo Certo</title>
+  <meta name="theme-color" content="#0F5C4C">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+    .miolo { max-width: 780px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+    h1, h2, h3 { font-family: var(--font-title); line-height: 1.25; }
+    h2 { color: var(--brand); border-bottom: 2px solid var(--brand-light); padding-bottom: 0.4rem; margin-top: 3rem; }
+    .numero { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .capa { text-align: center; padding: 3rem 1rem 2rem; }
+    .capa img.logo { width: 88px; height: 88px; border-radius: 22px; }
+    .claim { font-size: 1.15rem; color: var(--secondary); max-width: 32rem; margin: 0.75rem auto 0; }
+    .cartao { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; margin: 1rem 0; }
+    .grade-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .grade-2 { grid-template-columns: 1fr; } }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+    th, td { border: 1px solid var(--line); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+    th { background: var(--brand-light); color: var(--brand); }
+    .selo { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 999px; background: var(--amber-bg); color: var(--amber); }
+    .grade-telas { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .grade-telas figure { margin: 0; text-align: center; }
+    .grade-telas img { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+    .grade-telas figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; }
+    .aviso-protótipo, .aviso-prototipo { background: var(--amber-bg); border-radius: 14px; padding: 1.25rem; }
+    .fontes { font-size: 0.85rem; color: var(--muted); }
+    .rodape-discreto { text-align: center; font-size: 0.8rem; color: var(--muted); padding: 1rem; }
+    @media (max-width: 640px) { .rodape-discreto { display: none; } }
+    ul { padding-left: 1.3rem; }
+    .marca-tres-degraus { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="miolo">
+
+    <div class="capa">
+      <img class="logo" src="logo.svg" alt="Marca Passo Certo">
+      <h1>Passo Certo</h1>
+      <p class="claim">Decida se vale a pena virar MEI, dê esse passo e mantenha o registro em dia.</p>
+      <p class="fontes">Dossiê do projeto acadêmico · Engenharia de Software · ODS 8 (ONU)</p>
+    </div>
+
+    <section id="problema">
+      <h2>O problema, com dados</h2>
+      <p>No Brasil, <strong>37,5% da população ocupada está na informalidade</strong> — cerca de
+      <strong>38,5 milhões de pessoas</strong> (PNAD Contínua/IBGE, trimestre nov.2025–jan.2026).</p>
+      <p>Ser informal significa conviver com três privações ao mesmo tempo:</p>
+      <ul>
+        <li><strong>Sem cobertura do INSS</strong> — adoeceu, a renda para.</li>
+        <li><strong>Sem nota fiscal</strong> — o teto de clientes é a vizinhança.</li>
+        <li><strong>Sem histórico de renda</strong> — crédito negado ou a juros de pessoa física.</li>
+      </ul>
+      <div class="cartao">
+        <p style="margin:0">O MEI resolve as três por <strong class="numero">R$ 86,05</strong> por mês —
+        <strong class="numero">R$ 2,83</strong> por dia, ou <strong class="numero">3,6%</strong> do faturamento
+        de quem recebe R$ 2.400 mensais.</p>
+      </div>
+      <p><strong>A tese do projeto:</strong> a informalidade persiste por assimetria de informação, não por custo.</p>
+    </section>
+
+    <section id="objetivos">
+      <h2>Objetivo geral</h2>
+      <p>Ajudar trabalhadores informais brasileiros a decidir, de forma informada e com a própria renda como
+      referência, se e quando se formalizar como MEI — apoiando também o registro e a manutenção da regularidade
+      depois disso.</p>
+      <h3>Objetivos específicos</h3>
+      <ol>
+        <li>Simular o custo real da formalização a partir da renda da pessoa.</li>
+        <li>Traduzir a contrapartida previdenciária em benefícios concretos, com carência explícita.</li>
+        <li>Unificar caixa, comprovação de renda e obrigações num só lugar.</li>
+        <li>Reduzir a barreira digital de entrada — sem conta gov.br, sem senha, sem jargão.</li>
+        <li>Orientar o passo a passo até o Portal do Empreendedor oficial, sem se sobrepor a ele.</li>
+        <li>Alertar preventivamente sobre teto de faturamento e prazos, antes que virem problema.</li>
+      </ol>
+    </section>
+
+    <section id="comparativo">
+      <h2>Comparação com as ferramentas existentes</h2>
+      <p>O governo já oferece o <strong>Meu MEI Digital</strong> (gov.br / Portal do Empreendedor), que reúne os
+      módulos "Quero ser MEI" e "Já sou MEI": abre CNPJ, emite DAS, faz a declaração anual, registra faturamento
+      bruto e emite o CCMEI. Existe também o <strong>Meu INSS</strong>, para consultar contribuições e pedir
+      benefícios.</p>
+      <div class="cartao">
+        <p style="margin:0"><strong>O enquadramento que se sustenta:</strong> as ferramentas existentes resolvem o
+        <em>ato</em> de se formalizar — registrar, emitir, declarar. Nenhuma resolve a <em>decisão</em> de se
+        formalizar.</p>
+      </div>
+      <p>Quatro lacunas concretas, que são a razão de existir do Passo Certo:</p>
+      <ol>
+        <li><strong>Ninguém simula com a renda da pessoa.</strong> Nenhuma ferramenta pergunta quanto você ganha
+        para dizer se compensa, quanto custa por dia e que fatia da renda isso representa.</li>
+        <li><strong>Ninguém mostra a contrapartida.</strong> Benefício a benefício, com carência e progresso, não
+        existe em lugar nenhum — o Meu INSS mostra contribuições, não "faltam 4 para você ter direito a
+        auxílio-doença".</li>
+        <li><strong>Tudo está fragmentado.</strong> Faturamento em um app, contribuições em outro, comprovação de
+        renda para crédito em lugar nenhum.</li>
+        <li><strong>A porta de entrada exige conta gov.br verificada</strong> — exatamente a barreira digital do
+        público-alvo.</li>
+      </ol>
+      <p><strong>Posicionamento:</strong> complementaridade, não concorrência. O Passo Certo é a camada anterior ao
+      governo — convence, calcula e prepara, e entrega a pessoa no Portal do Empreendedor sabendo o que está
+      fazendo. Se a formalização acontece no app oficial, o projeto cumpriu o objetivo.</p>
+    </section>
+
+    <section id="diferenciais">
+      <h2>Cinco diferenciais</h2>
+      <ol>
+        <li>Simulação com a renda real de quem usa, não uma tabela genérica.</li>
+        <li>Contrapartida previdenciária traduzida em direitos concretos, com carência e progresso.</li>
+        <li>Caixa, comprovação de renda e obrigações reunidos em um só lugar.</li>
+        <li>Entrada sem barreira digital: sem gov.br, sem senha, sem jargão na primeira tela.</li>
+        <li>Complementar ao governo — entrega a pessoa pronta ao Portal do Empreendedor, em vez de competir com ele.</li>
+      </ol>
+    </section>
+
+    <section id="vantagens">
+      <h2>Vantagens</h2>
+      <div class="grade-2">
+        <div class="cartao">
+          <h3 style="margin-top:0">Para o trabalhador</h3>
+          <ul>
+            <li>Renda protegida por INSS em caso de doença, maternidade ou morte.</li>
+            <li>Mais clientes: 82% dos MEIs da indústria dizem que o CNPJ aumentou as vendas (Sebrae).</li>
+            <li>Acesso a crédito com histórico de renda formal — hoje, apenas 12% dos pequenos negócios
+            informais conseguem crédito.</li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3 style="margin-top:0">Para o país</h3>
+          <ul>
+            <li>Redução da informalidade e ampliação da arrecadação previdenciária.</li>
+            <li>11,5 milhões de MEIs ativos hoje, 90% em operação (Sebrae, Perfil do MEI) — a base já é grande;
+            falta alcançar quem ainda está de fora.</li>
+            <li>Fortalecimento de pequenos negócios e inclusão financeira.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="ods8">
+      <h2>Metas da ODS 8 endereçadas</h2>
+      <table>
+        <thead><tr><th>Meta</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td class="numero">8.3</td><td>Promover políticas voltadas para emprego produtivo, empreendedorismo e formalização de micro e pequenas empresas.</td></tr>
+          <tr><td class="numero">8.5</td><td>Emprego pleno e produtivo e trabalho decente para todos.</td></tr>
+          <tr><td class="numero">8.8</td><td>Proteger os direitos trabalhistas e promover ambientes de trabalho seguros.</td></tr>
+          <tr><td class="numero">8.10</td><td>Fortalecer a capacidade das instituições financeiras nacionais para expandir o acesso a serviços bancários, de seguro e financeiros.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="telas">
+      <h2>As telas do app</h2>
+      <p>Capturas da demonstração com a persona Marli Ferreira (dados fictícios).</p>
+      <div class="grade-telas">
+        <figure><img src="capturas/entrada.png" alt="Tela de entrada, com logo, propostas de valor e botão Começar"><figcaption>Entrada</figcaption></figure>
+        <figure><img src="capturas/inicio.png" alt="Tela Início com trilha, saldo do mês e faturamento do ano"><figcaption>Início</figcaption></figure>
+        <figure><img src="capturas/formalizar.png" alt="Tela Formalizar com busca de ocupação e diagnóstico de DAS"><figcaption>Formalizar</figcaption></figure>
+        <figure><img src="capturas/caixa.png" alt="Tela Caixa com formulário de lançamento e gráfico"><figcaption>Caixa</figcaption></figure>
+        <figure><img src="capturas/direitos.png" alt="Tela Direitos com os seis benefícios e carência"><figcaption>Direitos</figcaption></figure>
+        <figure><img src="capturas/deveres.png" alt="Tela Deveres com grade de 12 meses"><figcaption>Deveres</figcaption></figure>
+        <figure><img src="capturas/perfil.png" alt="Tela Perfil com dados editáveis e preferências"><figcaption>Perfil</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="dentro-do-app">
+      <h2>O que tem dentro do app</h2>
+      <ul>
+        <li>Login sem senha em 3 passos, com reconhecimento de quem já usou o app antes.</li>
+        <li>Início: trilha de formalização, saldo do mês, medidor do teto anual e alertas.</li>
+        <li>Formalizar: busca de ocupação com CNAE, diagnóstico com a renda real, tabela comparativa e trilha de 5 passos até o Portal do Empreendedor.</li>
+        <li>Caixa: lançamentos, gráfico de 6 meses, calculadora de "quanto cobrar", recibo compartilhável e comprovante de renda imprimível.</li>
+        <li>Direitos: os seis benefícios com carência e um simulador de meses contribuídos.</li>
+        <li>Deveres: grade de 12 meses do DAS, multas por atraso, lembrete da DASN-SIMEI e regra do desenquadramento.</li>
+        <li>Perfil: dados editáveis, exportar/importar em JSON, apagar tudo, alto contraste, restaurar demonstração.</li>
+        <li>Microlições de uma linha (DAS, CNAE, CNPJ, DASN-SIMEI) no contexto onde a dúvida nasce.</li>
+        <li>Leitura em voz alta dos números principais (Web Speech API).</li>
+        <li>PWA instalável, funciona offline.</li>
+      </ul>
+    </section>
+
+    <section id="marca">
+      <h2>A marca</h2>
+      <div class="marca-tres-degraus">
+        <img src="logo.svg" width="72" height="72" alt="Logo Passo Certo colorido">
+        <img src="logo-monocromatica.svg" width="72" height="72" alt="Logo Passo Certo monocromático" style="color:var(--brand)">
+      </div>
+      <p style="text-align:center; max-width:32rem; margin:0 auto">Três degraus subindo: cada um é um passo, o
+      conjunto é crescimento — a segunda metade da ODS 8. A semelhança com um gráfico de barras é intencional:
+      são os meses de faturamento que o app registra.</p>
+    </section>
+
+    <section id="sobre-o-trabalho">
+      <h2>Sobre o trabalho</h2>
+      <div class="cartao" id="dados-equipe">
+        <p class="fontes">Carregando dados da equipe salvos no app…</p>
+      </div>
+      <p class="fontes">Preencha a disciplina, professor(a), instituição, curso e integrantes na tela
+      <strong>Perfil → Sobre o app</strong>, dentro do próprio Passo Certo — eles aparecem aqui automaticamente.</p>
+    </section>
+
+    <section id="limitacoes">
+      <h2>Limitações</h2>
+      <ul>
+        <li>O app não emite guia nem abre CNPJ — depende de integração com sistemas federais.</li>
+        <li>A lista de ocupações elegíveis ao MEI é uma amostra representativa, não a base oficial completa.</li>
+        <li>Os parâmetros fiscais mudam anualmente; o PLP 60/2025 e o PLP 67/2025 propõem elevar o teto do MEI
+        para R$ 140 mil ou R$ 150 mil.</li>
+        <li>Não houve teste de usabilidade com o público-alvo real — é o próximo passo, indispensável antes de
+        qualquer lançamento.</li>
+      </ul>
+    </section>
+
+    <section id="fontes">
+      <h2>Fontes</h2>
+      <p class="fontes">
+        PNAD Contínua (IBGE) · Perfil do MEI (Sebrae) · metas nacionais da ODS 8 (Ipea) ·
+        Lei Complementar nº 123/2006 · Lei Complementar nº 128/2008 · Lei nº 13.709/2018 (LGPD) ·
+        Portal do Empreendedor e Meu MEI Digital (gov.br) · tabela DAS-MEI 2026 · reajuste do salário mínimo 2026.
+      </p>
+    </section>
+
+    <section class="aviso-prototipo">
+      <h2 style="margin-top:0; border:none; color:var(--ink)">Aviso de protótipo</h2>
+      <p style="margin:0">Este é um protótipo acadêmico. Os dados de demonstração (persona Marli Ferreira) são
+      fictícios, o código de verificação do login é sempre <strong>1234</strong>, e nenhuma informação sai do
+      aparelho de quem usa o app.</p>
+    </section>
+
+  </div>
+
+  <footer class="rodape-discreto">
+    <a href="index.html">Ir para o app</a>
+  </footer>
+
+  <script type="module">
+    import { obterEstado } from './js/state.js';
+    const { equipe } = obterEstado();
+    const alvo = document.getElementById('dados-equipe');
+    const vazio = !equipe.disciplina && !equipe.professor && !equipe.integrantes && !equipe.instituicao && !equipe.curso;
+    if (vazio) {
+      alvo.innerHTML = '<span class="selo">⚠ Dados da equipe ainda não preenchidos no app</span>';
+    } else {
+      alvo.innerHTML = `
+        <p><strong>Disciplina:</strong> ${equipe.disciplina || '—'}</p>
+        <p><strong>Professor(a):</strong> ${equipe.professor || '—'}</p>
+        <p><strong>Instituição:</strong> ${equipe.instituicao || '—'}</p>
+        <p><strong>Curso:</strong> ${equipe.curso || '—'}</p>
+        <p><strong>Integrantes:</strong> ${equipe.integrantes || '—'}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
