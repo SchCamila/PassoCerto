@@ -1,0 +1,81 @@
+/* Tokens de cor e tipografia do Passo Certo.
+   Paleta clara definida em :root; a escura é redefinida em dois lugares
+   (prefers-color-scheme e [data-theme="dark"]) para que o sistema e a
+   escolha manual do usuário funcionem em qualquer ordem. */
+
+:root {
+  --bg: #EAEEEA;
+  --card: #FCFCFB;
+  --ink: #12211C;
+  --secondary: #3D4F47;
+  --muted: #6B7B73;
+  --line: #D6DED8;
+  --brand: #0F5C4C;
+  --brand-light: #DCEBE5;
+  --amber: #B87A0E;
+  --amber-bg: #FBEFDD;
+  --critical: #A93F29;
+  --critical-bg: #F7E4DF;
+  --chart-1: #0E8F86;
+  --chart-2: #C4622A;
+
+  --focus-ring: #0F5C4C;
+  --shadow-color: 150 20% 10%;
+
+  --font-title: 'Bitter', Georgia, 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --tap-min: 44px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1311;
+    --card: #171E1B;
+    --ink: #E7EEEA;
+    --secondary: #A9BDB3;
+    --muted: #7E9088;
+    --line: #2A332E;
+    --brand: #4FBF9F;
+    --brand-light: #1B2E27;
+    --amber: #E0A857;
+    --amber-bg: #2E2410;
+    --critical: #E08469;
+    --critical-bg: #33201B;
+    --chart-1: #1F9C89;
+    --chart-2: #CE7A3A;
+    --focus-ring: #4FBF9F;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0E1311;
+  --card: #171E1B;
+  --ink: #E7EEEA;
+  --secondary: #A9BDB3;
+  --muted: #7E9088;
+  --line: #2A332E;
+  --brand: #4FBF9F;
+  --brand-light: #1B2E27;
+  --amber: #E0A857;
+  --amber-bg: #2E2410;
+  --critical: #E08469;
+  --critical-bg: #33201B;
+  --chart-1: #1F9C89;
+  --chart-2: #CE7A3A;
+  --focus-ring: #4FBF9F;
+  color-scheme: dark;
+}
+
+/* Alto contraste: opção explícita, independente do tema claro/escuro */
+:root[data-contraste="alto"] {
+  --line: var(--ink);
+  --muted: var(--secondary);
+}
