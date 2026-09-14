@@ -85,6 +85,7 @@ export async function navegar(rota) {
     direitos: () => import('./telas/direitos.js').then((m) => m.montar(container, contexto)),
     deveres: () => import('./telas/deveres.js').then((m) => m.montar(container, contexto)),
     perfil: () => import('./telas/perfil.js').then((m) => m.montar(container, contexto)),
+    sobre: () => import('./telas/sobre.js').then((m) => m.montar(container, contexto)),
   };
 
   try {
