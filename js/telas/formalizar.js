@@ -106,6 +106,7 @@ function render(container, estado, local) {
         </label>
       `).join('')}
       ${microlicao('CNPJ')}
+      ${microlicao('CCMEI')}
       <p class="ajuda" style="margin-top:0.75rem">
         O Passo Certo não emite CNPJ nem guias — isso é feito de graça no Portal do Empreendedor do governo.
       </p>

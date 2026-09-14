@@ -191,7 +191,7 @@ a { color: var(--brand); }
 .botao-primario { background: var(--brand); color: #fff; }
 .botao-primario:hover { filter: brightness(1.05); }
 .botao-secundario { background: var(--card); color: var(--brand); border-color: var(--brand); }
-.botao-texto { background: none; border: none; color: var(--brand); font-weight: 600; width: auto; padding: 0.5rem; }
+.botao-texto { background: none; border: none; color: var(--brand); font-weight: 600; width: auto; padding: 0.5rem; min-height: var(--tap-min); display: inline-flex; align-items: center; }
 .botao-perigo { background: var(--critical-bg); color: var(--critical); border-color: var(--critical); }
 .botao:disabled { opacity: 0.5; cursor: not-allowed; }
 
