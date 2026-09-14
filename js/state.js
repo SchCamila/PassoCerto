@@ -164,6 +164,27 @@ export function atualizarUsuario(patch) {
   return estado.usuario;
 }
 
+export function atualizarTrilha(passosConcluidos) {
+  const estado = obterEstado();
+  estado.trilhaFormalizacao.passosConcluidos = passosConcluidos;
+  salvarEstado(estado);
+  return estado.trilhaFormalizacao;
+}
+
+export function atualizarDireitos(patch) {
+  const estado = obterEstado();
+  estado.direitos = { ...estado.direitos, ...patch };
+  salvarEstado(estado);
+  return estado.direitos;
+}
+
+export function atualizarDeveres(mesChave, patch) {
+  const estado = obterEstado();
+  estado.deveres.pagamentos[mesChave] = { ...estado.deveres.pagamentos[mesChave], ...patch };
+  salvarEstado(estado);
+  return estado.deveres;
+}
+
 export function atualizarEquipe(patch) {
   const estado = obterEstado();
   estado.equipe = { ...estado.equipe, ...patch };
